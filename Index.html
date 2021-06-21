@@ -1,0 +1,62 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<title></title>
+ 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+ </head>
+ <body>
+ 
+
+
+ <br>
+<input type="text" id="input1" value="">
+<input type="text" id="input2" value="">
+<input type="text" id="input3" value="">
+
+<br><br>
+
+<button type="button" class="btn btn-outline-dark" onclick="print_altitude()">Botão 1</button>
+<button type="button" class="btn btn-outline-dark" onclick="print_altitude2()">Botão 2</button>
+<button type="button" class="btn btn-outline-dark" onclick="conta()">Calcular</button>
+
+
+ </body>
+ <script type="text/javascript">
+	var Input1 
+var Input2 
+var Input3 
+var valor1 
+var valor2
+
+navigator.geolocation.getCurrentPosition(print_altitude);
+
+ function print_altitude() {
+ navigator.geolocation.getCurrentPosition(function(position){
+
+ 	// console.log(position.coords.altitude)
+ 	valor1 = position.coords.altitude;
+    document.getElementById('input1').value = valor1;
+    
+    })
+ }
+
+function print_altitude2() {
+navigator.geolocation.getCurrentPosition(function(position){
+      console.log(position.coords.altitude);
+      valor2 = position.coords.altitude;
+      document.getElementById('input2').value = valor2;
+    })
+   } 
+
+function conta() {
+	var resp = valor1 - valor2;
+	document.getElementById('input3').value = resp;
+}
+</script>
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+ </html>
+
+ 
+ 
